@@ -15,8 +15,9 @@ public class GameManager : MonoBehaviour
     public bool routerON;
     public bool inComputer;
 
-    public float zoomSpeed = 0.1f;
-    public float targetZoom = 5.0f;
+    public float zoomSpeed;
+    public float targetZoom;
+    public float defaultZoom;
 
     void Start()
     {
@@ -49,20 +50,42 @@ public class GameManager : MonoBehaviour
                 goIntoComputer();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            exitComputer();
+        }
     }
 
     public void goIntoComputer()
     {
         UI.gameObject.SetActive(false);
-        StartCoroutine(ZoomCamera());
-        ComputerScreen.gameObject.SetActive(true);
+        StartCoroutine(ZoomInCamera());
     }
 
-    IEnumerator ZoomCamera()
+    public void exitComputer()
+    {
+        UI.gameObject.SetActive(true);
+        StartCoroutine(ZoomOutCamera());
+    }
+
+    IEnumerator ZoomInCamera()
     {
         while (mainCamera.fieldOfView > targetZoom)
         {
             mainCamera.fieldOfView -= zoomSpeed * Time.deltaTime;
+            yield return null;
+        }
+        ComputerScreen.gameObject.SetActive(true);
+    }
+    
+    IEnumerator ZoomOutCamera()
+    {
+        ComputerScreen.gameObject.SetActive(false);
+
+        while (mainCamera.fieldOfView < defaultZoom)
+        {
+            mainCamera.fieldOfView += zoomSpeed * Time.deltaTime;
             yield return null;
         }
     }
