@@ -6,7 +6,7 @@ public class ButtonJumps : MonoBehaviour
 {
     private RectTransform rectTransform;
 
-    private float maxVerticalPos = 500;
+    private float maxVerticalPos = 445;
     private float minVerticalPos = -370;
     private float maxHorizontalPos = 860;
     private float minHorizontalPos = -860;
