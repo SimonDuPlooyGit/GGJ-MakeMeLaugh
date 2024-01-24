@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject routerPrompt;
     public GameObject picturePrompt;
     public GameObject picture;
+    public GameObject printerPrompt;
 
     public Camera mainCamera;
 
@@ -51,6 +52,12 @@ public class GameManager : MonoBehaviour
             picturePrompt.gameObject.SetActive(true);
         }
         else { picturePrompt.gameObject.SetActive(false); }
+
+        if (gameObject.GetComponent<RayObjectChecking>().currentObject == "Printer")
+        {
+            printerPrompt.gameObject.SetActive(true);
+        }
+        else { printerPrompt.gameObject.SetActive(false); }
 
         if (Input.GetMouseButtonDown(0))
         {
