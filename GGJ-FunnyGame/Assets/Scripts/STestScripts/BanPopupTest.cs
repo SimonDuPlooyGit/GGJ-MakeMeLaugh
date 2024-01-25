@@ -6,12 +6,14 @@ using UnityEngine;
 public class BanPopupTest : MonoBehaviour
 {
     public float banTime;
-    public float timer;
+    private float timer;
     public TextMeshProUGUI timerText;
+    public GameObject confirmButton;
 
     void Start()
     {
         StartTimer();
+        confirmButton.SetActive(false);
     }
 
     void Update()
@@ -26,6 +28,7 @@ public class BanPopupTest : MonoBehaviour
             
             if (timer <= 0f)
             {
+                confirmButton.SetActive(true);
                 Debug.Log("Timer Done");
             }
         }
@@ -34,5 +37,10 @@ public class BanPopupTest : MonoBehaviour
     public void StartTimer()
     {
         timer = banTime;
+    }
+
+    public void RemoveMessage()
+    {
+        gameObject.SetActive(false);
     }
 }
