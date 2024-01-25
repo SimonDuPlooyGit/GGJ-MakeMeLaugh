@@ -2,8 +2,8 @@ using Ink.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -11,36 +11,27 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance;
     [Header("Load Globals Ink File")]
     [SerializeField] private TextAsset loadGlobalsJSON;
-    [Header("Current NPC")]
-    public GameObject NPC;
+    [SerializeField] private TextAsset grannyJSON;
 
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private float typingSpeed;
-    [SerializeField] private GameObject givingImage;
-    [SerializeField] private TextMeshProUGUI narrativeText;
     [Header("Display")]
     [SerializeField] private GameObject oneSprite;
     [SerializeField] private TextMeshProUGUI oneDialogue;
-    [SerializeField] private TextMeshProUGUI oneName;
-    [SerializeField] private Animator oneAnimator;
     
 
     private Story currentStory;
     private bool dialogueIsPlaying;
     private Coroutine displayLineCoroutine;
     private bool canContinueToNextLine= true;
-    private Animator currentAnim;
     private DialogueVariables dialogueVariables;
 
     [Header("Choices UI")]
-    [SerializeField] private GameObject[] choices;
-    private TextMeshProUGUI[] choicesText;
     [SerializeField] private GameObject continueBTN;
 
-    private const string SPEAKER_TAG = "speaker";
     private const string PORTRAIT_TAG = "portrait";
-    private const string GIVE_TAG = "give";
+    private const string SPEAKER_TAG = "speaker";
 
 
     private void Awake()
@@ -62,14 +53,6 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
-
-        choicesText = new TextMeshProUGUI[choices.Length];
-        int i = 0;
-        foreach (GameObject choice in choices)
-        {
-            choicesText[i] = choice.GetComponentInChildren<TextMeshProUGUI>();
-            i++;
-        }
     }
 
     private void Update()
@@ -83,9 +66,9 @@ public class DialogueManager : MonoBehaviour
     public void enterDialogueMode(TextAsset inkJSON)
     {
         currentStory = new Story(inkJSON.text);
-        //currentStory.variablesState["choiceOne"] = false;
         dialogueIsPlaying=true;
         dialoguePanel.SetActive(true);
+        //Debug.Log(dialoguePanel.activeSelf);
 
         dialogueVariables.StartListening(currentStory);
         continueStory();
@@ -93,36 +76,19 @@ public class DialogueManager : MonoBehaviour
 
     public void continueStory()
     {
-        if (canContinueToNextLine==true) //&& currentStory.currentChoices.Count==0)
+        if (canContinueToNextLine==true) 
         {
             if (currentStory.canContinue)
             {
-                //currentStory.Continue();
                 oneDialogue.transform.parent.gameObject.SetActive(false);
-                givingImage.gameObject.SetActive(false);
-                narrativeText.transform.parent.gameObject.SetActive(false);
 
-                //Debug.Log(currentDialogue.name);
-                for (int i = 0; i < choices.Length; i++) 
-                {
-                    choices[i].gameObject.SetActive(false);
-                }
                 continueBTN.SetActive(false);
                 string placeHolder = currentStory.Continue();
                 //Debug.Log(placeHolder);
-                if(currentStory.currentTags.Count !=0)
+                if (currentStory.currentTags.Count != 0)
                     handleTags(currentStory.currentTags, placeHolder);
                 else
-                {
-                    oneSprite.gameObject.SetActive(false);
-                    narrativeText.transform.parent.gameObject.SetActive(true);
-                    if (displayLineCoroutine != null)
-                    {
-                        StopCoroutine(displayLineCoroutine);
-                    }
-                    displayLineCoroutine = StartCoroutine(displayLine(narrativeText, placeHolder));
-                    continueBTN.SetActive(true);
-                }
+                    Debug.Log("Missing");
 
             }
             else
@@ -148,10 +114,7 @@ public class DialogueManager : MonoBehaviour
             
             switch(tagKey)
             {
-                case SPEAKER_TAG: //Debug.Log("speaker= " + tagValue);
-                    string tempValue = tagValue.Substring(0, 1);
-                    if (tempValue == "1")
-                    {
+                case SPEAKER_TAG:
                         oneDialogue.transform.parent.gameObject.SetActive(true);
                         //nolwaziDialogue.text = tempText;
                         if (displayLineCoroutine != null)
@@ -159,35 +122,11 @@ public class DialogueManager : MonoBehaviour
                             StopCoroutine(displayLineCoroutine);
                         }
                         displayLineCoroutine = StartCoroutine(displayLine(oneDialogue, tempText));
-                        oneName.text = tagValue.Substring(1,tagValue.Length-1);
-                        currentAnim = oneAnimator;
                         oneSprite.gameObject.SetActive(true);
-                    }
-                    
-                    else
-                    {
-                        oneDialogue.transform.parent.gameObject.SetActive(true);
-                        //nolwaziDialogue.text = tempText;
-                        if (displayLineCoroutine != null)
-                        {
-                            StopCoroutine(displayLineCoroutine);
-                        }
-                        displayLineCoroutine = StartCoroutine(displayLine(oneDialogue, tempText));
-                        oneName.text = tagValue.Substring(1, tagValue.Length - 1);
-                        currentAnim = oneAnimator;
-                        oneSprite.gameObject.SetActive(true);
-                    }
                     break;
                 case PORTRAIT_TAG:
-                    //oneSprite.gameObject.SetActive(true);
-                    //twoSprite.gameObject.SetActive(true);
-                    currentAnim.Play(tagValue);
-                   
-                    break;
-                case GIVE_TAG:
-                    givingImage.gameObject.SetActive(true);
-                    givingImage.transform.GetComponent<Image>().sprite= Resources.Load<Sprite>("GivenObjects/" + tagValue);
-                    GameObject player = GameObject.FindWithTag("Player");
+                    oneSprite.GetComponent<Image>().sprite = Resources.Load<Sprite>("GrannySprites/"+ tagValue);
+                    //Debug.Log(oneSprite.GetComponent<Image>().sprite.ToString());
                     break;
 
             }
@@ -198,10 +137,8 @@ public class DialogueManager : MonoBehaviour
     public void exitDialogueMode()
     {
         dialogueVariables.StopListening(currentStory);
-        //GameManager.Instance.resumeEnemyMovement();
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
-        //PlayerScript.canMove = true;
     }
 
     private IEnumerator displayLine(TextMeshProUGUI dialogueCurry, string line)
