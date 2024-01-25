@@ -9,6 +9,7 @@ public class ApplicationUsage : MonoBehaviour
     public void OpenApp()
     {
         appWindow.SetActive(true);
+        transform.SetSiblingIndex(7);
     }
 
     public void CloseApp()
