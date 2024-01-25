@@ -10,7 +10,6 @@ public class IceBoxNews : MonoBehaviour
     public GameObject otherWindow_3;
     public GameObject otherWindow_4;
     public GameObject otherWindow_5;
-    public GameObject otherWindow_6;
 
     public void OpenWindow()
     {
@@ -20,6 +19,5 @@ public class IceBoxNews : MonoBehaviour
         otherWindow_3.SetActive(false);
         otherWindow_4.SetActive(false);
         otherWindow_5.SetActive(false);
-        otherWindow_6.SetActive(false);
     }
 }

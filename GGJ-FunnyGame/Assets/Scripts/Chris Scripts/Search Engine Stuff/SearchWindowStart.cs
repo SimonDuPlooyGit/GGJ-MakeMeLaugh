@@ -5,7 +5,6 @@ using UnityEngine;
 public class SearchWindowStart : MonoBehaviour
 {
     #region Search Engine Stuff
-    public GameObject searchWindow1;
     public GameObject searchWindow2;
     public GameObject searchWindow3;
     public GameObject searchWindow4;
@@ -20,8 +19,7 @@ public class SearchWindowStart : MonoBehaviour
 
     private void SearchEngineWindows()
     {
-        searchWindow1.SetActive(true);
-        searchWindow2.SetActive(false);
+        searchWindow2.SetActive(true);
         searchWindow3.SetActive(false);
         searchWindow4.SetActive(false);
         searchWindow5.SetActive(false);

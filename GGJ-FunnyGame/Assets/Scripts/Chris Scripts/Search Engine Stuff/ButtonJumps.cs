@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ButtonJumps : MonoBehaviour
 {
+    SearchEngineTasks searchEngineTasksScript;
+
     private RectTransform rectTransform;
 
     private float maxVerticalPos = 445;
@@ -14,6 +16,7 @@ public class ButtonJumps : MonoBehaviour
     private Vector2 position;
 
     private int Clicks;
+    private int ExitButtons;
 
     public GameObject window;
     public GameObject exitButton;
@@ -21,6 +24,8 @@ public class ButtonJumps : MonoBehaviour
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+
+        searchEngineTasksScript = GameObject.Find("Search Engine Panel").GetComponent<SearchEngineTasks>();
     }
 
     public void ExitClicks()
@@ -40,6 +45,8 @@ public class ButtonJumps : MonoBehaviour
             Debug.Log("Done");
             window.SetActive(false);
             exitButton.SetActive(false);
+
+            searchEngineTasksScript.ExitButtons += 1;
         }
     }
 }
