@@ -8,8 +8,13 @@ public class PlaneFlying : MonoBehaviour
     public Canvas canvas;
     public float desiredDistance;
     public float proximityThreshold;
-    public Vector2 minClamp;
-    public Vector2 maxClamp;
+    public float chaseDuration;
+    private float timer;
+
+    private void Start()
+    {
+        StartTimer();
+    }
 
     void Update()
     {
@@ -24,6 +29,14 @@ public class PlaneFlying : MonoBehaviour
 
         if (currentDistance < proximityThreshold)
         {
+
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+
+                desiredDistance -= Time.deltaTime * (desiredDistance/chaseDuration);
+            }
+
             // Calculate the desired position to move away from the cursor
             Vector3 desiredPosition = canvasMousePosition - toTarget.normalized * desiredDistance;
 
@@ -42,4 +55,9 @@ public class PlaneFlying : MonoBehaviour
             );
         }
     }
+    public void StartTimer()
+    {
+        timer = chaseDuration;
+    }
+
 }
