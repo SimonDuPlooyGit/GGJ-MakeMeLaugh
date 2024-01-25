@@ -7,6 +7,7 @@ public class CameraRotation : MonoBehaviour
     public float rotationDuration = 3.0f; // Duration for the rotation
     private Quaternion targetRotation;
     private float elapsedTime = 0f;
+    public AudioSource chair;
 
     void Start()
     {
@@ -17,10 +18,12 @@ public class CameraRotation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            chair.Play();
             RotateCamera(-90f); // Rotate 90 degrees left
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
+            chair.Play();
             RotateCamera(90f); // Rotate 90 degrees right
         }
 

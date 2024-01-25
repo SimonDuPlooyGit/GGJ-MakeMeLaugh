@@ -33,7 +33,7 @@ public class HitByRay : MonoBehaviour
                 }
             } else if (gameObject.name == "Computer")
             {
-
+                //Stuff
             }
         }
         else { highlight.SetActive(false);}
