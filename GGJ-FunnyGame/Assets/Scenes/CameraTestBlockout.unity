@@ -19780,7 +19780,7 @@ MonoBehaviour:
   canvas: {fileID: 578573195}
   desiredDistance: 500
   proximityThreshold: 450
-  chaseDuration: 10
+  chaseDuration: 20
 --- !u!1 &2035153093
 GameObject:
   m_ObjectHideFlags: 0

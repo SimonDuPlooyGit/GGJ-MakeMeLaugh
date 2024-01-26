@@ -11,15 +11,18 @@ public class PlaneFlying : MonoBehaviour
     public float chaseDuration;
     private float timer;
 
+    Vector2 canvasSize;
     private void Start()
     {
         StartTimer();
+        canvasSize = canvas.renderingDisplaySize;
+        Debug.Log(canvasSize);
     }
 
     void Update()
     {
         Vector2 canvasMousePosition = GetCanvasMousePosition();
-        Debug.Log("Canvas Mouse Position: " + canvasMousePosition);
+        //Debug.Log("Canvas Mouse Position: " + canvasMousePosition);
 
         // Calculate the vector from this object to the target object
         Vector2 toTarget = canvasMousePosition - new Vector2(transform.position.x, transform.position.y);
@@ -34,14 +37,20 @@ public class PlaneFlying : MonoBehaviour
             {
                 timer -= Time.deltaTime;
 
-                desiredDistance -= Time.deltaTime * (desiredDistance/chaseDuration);
+                desiredDistance -= Time.deltaTime * (desiredDistance / chaseDuration);
+                proximityThreshold -= Time.deltaTime * (proximityThreshold / chaseDuration);
+
+            } else if (timer <= 0)
+            {
+                desiredDistance = 0f;
+                proximityThreshold = 0f;
             }
 
             // Calculate the desired position to move away from the cursor
             Vector3 desiredPosition = canvasMousePosition - toTarget.normalized * desiredDistance;
 
             // Move towards the desired position
-            transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime*2);
         }
     }
 
@@ -55,9 +64,13 @@ public class PlaneFlying : MonoBehaviour
             );
         }
     }
-    public void StartTimer()
+    private void StartTimer()
     {
         timer = chaseDuration;
     }
 
+    private void getBounds()
+    {
+
+    }
 }
