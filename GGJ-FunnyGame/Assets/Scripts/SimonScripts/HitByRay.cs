@@ -10,6 +10,7 @@ public class HitByRay : MonoBehaviour
 
     public GameObject highlight;
     public GameObject gameManager;
+    public GameObject paperToMove;
     public GameObject ON;
     public GameObject OFF;
 
@@ -54,5 +55,6 @@ public class HitByRay : MonoBehaviour
     {
         gameManager.GetComponent<GameManager>().paperTaken = true;
         gameObject.SetActive(false);
+        paperToMove.SetActive(true);
     }
 }
