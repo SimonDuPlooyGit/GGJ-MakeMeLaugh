@@ -9,11 +9,13 @@ public class BanPopupTest : MonoBehaviour
     private float timer;
     public TextMeshProUGUI timerText;
     public GameObject confirmButton;
+    public GameObject plane;
 
     void Start()
     {
         StartTimer();
         confirmButton.SetActive(false);
+        plane.SetActive(false);
     }
 
     void Update()
@@ -42,5 +44,6 @@ public class BanPopupTest : MonoBehaviour
     public void RemoveMessage()
     {
         gameObject.SetActive(false);
+        plane.SetActive(true);
     }
 }

@@ -10,6 +10,7 @@ public class PlaneFlying : MonoBehaviour
     public float proximityThreshold;
     public float chaseDuration;
     private float timer;
+    float halfWidth, halfHeight;
 
     Vector2 canvasSize;
     private void Start()
@@ -17,10 +18,16 @@ public class PlaneFlying : MonoBehaviour
         StartTimer();
         canvasSize = canvas.renderingDisplaySize;
         Debug.Log(canvasSize);
+        
+        halfWidth = canvasSize.x / 2;
+        Debug.Log(halfWidth);
+        halfHeight = canvasSize.y / 2;
+        Debug.Log(halfHeight);
     }
 
     void Update()
     {
+        //Debug.Log(gameObject.GetComponent<RectTransform>().anchoredPosition);
         Vector2 canvasMousePosition = GetCanvasMousePosition();
         //Debug.Log("Canvas Mouse Position: " + canvasMousePosition);
 
@@ -48,9 +55,17 @@ public class PlaneFlying : MonoBehaviour
 
             // Calculate the desired position to move away from the cursor
             Vector3 desiredPosition = canvasMousePosition - toTarget.normalized * desiredDistance;
+            float clampedXAnchor = Mathf.Clamp(gameObject.GetComponent<RectTransform>().anchoredPosition.x, -halfWidth, halfWidth);
+            float clampedYAnchor = Mathf.Clamp(gameObject.GetComponent<RectTransform>().anchoredPosition.y, -halfHeight, halfHeight);
 
-            // Move towards the desired position
-            transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime*2);
+            if (clampedXAnchor > -halfWidth && clampedXAnchor < halfWidth && clampedYAnchor > -halfHeight && clampedYAnchor < halfHeight)
+            {
+                transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * 2);
+            }
+            else 
+            {
+                transform.position = Vector3.Lerp(transform.position, canvas.transform.position, Time.deltaTime * 4);
+            }
         }
     }
 
@@ -67,10 +82,5 @@ public class PlaneFlying : MonoBehaviour
     private void StartTimer()
     {
         timer = chaseDuration;
-    }
-
-    private void getBounds()
-    {
-
     }
 }
