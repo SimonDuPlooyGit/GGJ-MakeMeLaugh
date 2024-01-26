@@ -13,9 +13,9 @@ public class BanPopupTest : MonoBehaviour
 
     void Start()
     {
-        StartTimer();
+        plane.SetActive(true);
         confirmButton.SetActive(false);
-        plane.SetActive(false);
+        StartTimer();     
     }
 
     void Update()
@@ -44,6 +44,6 @@ public class BanPopupTest : MonoBehaviour
     public void RemoveMessage()
     {
         gameObject.SetActive(false);
-        plane.SetActive(true);
+        plane.GetComponent<PlaneFlying>().enabled = true;
     }
 }
