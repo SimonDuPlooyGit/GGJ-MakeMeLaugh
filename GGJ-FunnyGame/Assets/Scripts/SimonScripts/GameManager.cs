@@ -13,11 +13,13 @@ public class GameManager : MonoBehaviour
     public GameObject picturePrompt;
     public GameObject picture;
     public GameObject printerPrompt;
+    public GameObject paperPrompt;
 
     public Camera mainCamera;
 
     public bool routerON;
     public bool inComputer;
+    public bool paperTaken;
 
     public float zoomSpeed;
     public float targetZoom;
@@ -58,6 +60,12 @@ public class GameManager : MonoBehaviour
             printerPrompt.gameObject.SetActive(true);
         }
         else { printerPrompt.gameObject.SetActive(false); }
+
+        if (gameObject.GetComponent<RayObjectChecking>().currentObject == "ReamOfPaper")
+        {
+            paperPrompt.gameObject.SetActive(true);
+        }
+        else { paperPrompt.gameObject.SetActive(false); }
 
         if (Input.GetMouseButtonDown(0))
         {

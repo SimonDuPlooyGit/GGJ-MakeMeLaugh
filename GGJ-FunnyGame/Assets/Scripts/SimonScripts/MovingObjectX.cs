@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
-public class MovingObjectsZ : MonoBehaviour
+public class MovingObjectsX : MonoBehaviour
 {
     public GameObject gameManager;
     public float leftClamp;
@@ -18,16 +18,17 @@ public class MovingObjectsZ : MonoBehaviour
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Debug.Log(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit) && gameManager.GetComponent<RayObjectChecking>().currentObject == gameObject.name && Input.GetMouseButton(0))
         {
             Debug.Log(hit.point);
-            // Ensure the z value is within the clamp range
-            float clampedZ = Mathf.Clamp(hit.point.z, leftClamp, rightClamp);
+
+            float clampedX = Mathf.Clamp(hit.point.x, leftClamp, rightClamp);
 
             // Set the object's position
-            Vector3 rayMovement = new Vector3(transform.position.x, transform.position.y, clampedZ);
+            Vector3 rayMovement = new Vector3(clampedX, transform.position.y, transform.position.z);
             transform.position = rayMovement;
         }
     }
