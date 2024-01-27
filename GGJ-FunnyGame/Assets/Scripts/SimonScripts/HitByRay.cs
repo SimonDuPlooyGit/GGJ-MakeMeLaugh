@@ -10,6 +10,7 @@ public class HitByRay : MonoBehaviour
 
     public GameObject highlight;
     public GameObject gameManager;
+    public GameObject paperToMove;
     public GameObject ON;
     public GameObject OFF;
 
@@ -31,9 +32,12 @@ public class HitByRay : MonoBehaviour
                 {
                     turnOnRouter();
                 }
-            } else if (gameObject.name == "Computer")
+            } else if (gameObject.name == "ReamOfPaper")
             {
-                //Stuff
+                if (Input.GetMouseButtonDown(0))
+                {
+                    RemovePaper();
+                }
             }
         }
         else { highlight.SetActive(false);}
@@ -45,5 +49,12 @@ public class HitByRay : MonoBehaviour
         OFF.SetActive(false);
 
         gameManager.GetComponent<GameManager>().routerON = true;
+    }
+
+    public void RemovePaper()
+    {
+        gameManager.GetComponent<GameManager>().paperTaken = true;
+        gameObject.SetActive(false);
+        paperToMove.SetActive(true);
     }
 }

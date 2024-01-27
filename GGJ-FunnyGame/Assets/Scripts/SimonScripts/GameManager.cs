@@ -13,11 +13,17 @@ public class GameManager : MonoBehaviour
     public GameObject picturePrompt;
     public GameObject picture;
     public GameObject printerPrompt;
+    public GameObject paperPrompt;
+    public GameObject paperplacePrompt;
+    public GameObject movingPaper;
+    public GameObject printingPaper;
 
     public Camera mainCamera;
 
     public bool routerON;
     public bool inComputer;
+    public bool paperTaken;
+    public bool paperPlaced;
 
     public float zoomSpeed;
     public float targetZoom;
@@ -25,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        paperplacePrompt.SetActive(false);
+        paperPlaced = false;
         mainCamera = Camera.main;
         UI.gameObject.SetActive(true);
         ComputerScreen.gameObject.SetActive(false);
@@ -55,9 +63,39 @@ public class GameManager : MonoBehaviour
 
         if (gameObject.GetComponent<RayObjectChecking>().currentObject == "Printer")
         {
-            printerPrompt.gameObject.SetActive(true);
+            if (paperTaken)
+            {
+                paperplacePrompt.gameObject.SetActive(true);
+
+                if (Input.GetMouseButton(0))
+                {
+                    movingPaper.SetActive(false);
+                    printingPaper.SetActive(true);
+                    paperTaken = false;
+                    paperPlaced = true;
+                    paperplacePrompt.gameObject.SetActive(false);
+                    printerPrompt.gameObject.SetActive(true);
+                }
+            } else
+            {
+                paperplacePrompt.gameObject.SetActive(false);
+            }
+
+            if (paperPlaced)
+            {
+                printerPrompt.gameObject.SetActive(true);
+            } else
+            {
+                printerPrompt.gameObject.SetActive(false);
+            }
         }
         else { printerPrompt.gameObject.SetActive(false); }
+
+        if (gameObject.GetComponent<RayObjectChecking>().currentObject == "ReamOfPaper")
+        {
+            paperPrompt.gameObject.SetActive(true);
+        }
+        else { paperPrompt.gameObject.SetActive(false); }
 
         if (Input.GetMouseButtonDown(0))
         {
