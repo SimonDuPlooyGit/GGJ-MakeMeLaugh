@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject paperplacePrompt;
     public GameObject movingPaper;
     public GameObject printingPaper;
+    public GameObject instructions;
 
     public Camera mainCamera;
 
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         ComputerScreen.gameObject.SetActive(false);
         routerON = false;
         inComputer = false;
+        mainCamera.GetComponent<CameraRotation>().enabled = false;
     }
 
 
@@ -120,12 +122,17 @@ public class GameManager : MonoBehaviour
     {
         UI.gameObject.SetActive(false);
         StartCoroutine(ZoomInCamera());
+        inComputer = true;
+        mainCamera.GetComponent<CameraRotation>().enabled = false;
     }
 
     public void exitComputer()
     {
         UI.gameObject.SetActive(true);
         StartCoroutine(ZoomOutCamera());
+        inComputer = false;
+        instructions.SetActive(true);
+        mainCamera.GetComponent<CameraRotation>().enabled = true;
     }
 
     public void removePicture()
