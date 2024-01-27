@@ -8,7 +8,12 @@ public class SignIn : MonoBehaviour
     public TMP_InputField names;
     public TMP_InputField email;
 
-    public bool download;
+    public GameObject firstRobot;
+
+    public GameObject RobotPanel;
+    public GameObject RecipeSite;
+
+    public bool robot;
 
     private void Update()
     {
@@ -17,23 +22,30 @@ public class SignIn : MonoBehaviour
 
         if (!string.IsNullOrWhiteSpace(nameInput) && !string.IsNullOrWhiteSpace(emailInput))
         {
-            download = true;
+            robot = true;
+            DownloadRecipe();
         }
         else
         {
-            download = false;
+            robot = false;
         }
     }
 
     public void DownloadRecipe()
     {
-        if (download == true)
+        if (robot == true)
         {
-
+            firstRobot.SetActive(true);
         }
         else
         {
 
         }
+    }
+
+    public void ActivateRobot()
+    {
+        RobotPanel.SetActive(true);
+        RecipeSite.SetActive(false);
     }
 }
