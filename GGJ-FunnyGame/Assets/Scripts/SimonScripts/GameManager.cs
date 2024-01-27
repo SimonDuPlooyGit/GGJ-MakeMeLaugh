@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public Canvas UI;
     public Canvas ComputerScreen;
+    public GameObject NoInternet;
+
+    public TMP_InputField wifiInput;
+    public GameObject wifiPrompt;
+    public TextMeshProUGUI routerNotFound;
 
     public GameObject computerPrompt;
     public GameObject routerPrompt;
@@ -18,6 +24,7 @@ public class GameManager : MonoBehaviour
     public GameObject movingPaper;
     public GameObject printingPaper;
     public GameObject instructions;
+    public GameObject reamOfPaper;
 
     public Camera mainCamera;
 
@@ -25,6 +32,7 @@ public class GameManager : MonoBehaviour
     public bool inComputer;
     public bool paperTaken;
     public bool paperPlaced;
+    public bool imageSentToPrint;
 
     public float zoomSpeed;
     public float targetZoom;
@@ -40,11 +48,34 @@ public class GameManager : MonoBehaviour
         routerON = false;
         inComputer = false;
         mainCamera.GetComponent<CameraRotation>().enabled = false;
+        wifiInput.gameObject.SetActive(false);
+        wifiPrompt.SetActive(false);
+        reamOfPaper.GetComponent<HitByRay>().enabled = false;
     }
 
 
     void Update()
     {
+        if (imageSentToPrint)
+        {
+            reamOfPaper.GetComponent<HitByRay>().enabled = true;
+        }
+
+        if (routerON)
+        {
+            wifiInput.gameObject.SetActive(true);
+            wifiPrompt.SetActive(true);
+
+            if (wifiInput.text.ToString() == "ilikeoldbunsandicannotlieandotherbrotherscan'tdeny")
+            {
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    NoInternet.SetActive(false);
+                    routerNotFound.text = "Router connected!";
+                }
+            }
+        }
+
         if (gameObject.GetComponent<RayObjectChecking>().currentObject == "Computer")
         {
             computerPrompt.gameObject.SetActive(true);
