@@ -14,6 +14,8 @@ public class ShootObject : MonoBehaviour
 
     public bool shot;
 
+    public ShootingGame shootObjectScript;
+
     private void Start()
     {
         
@@ -25,12 +27,20 @@ public class ShootObject : MonoBehaviour
         {
             Shoot();
         }
+
+        if (bullet.GetComponent<RectTransform>().anchoredPosition == ad.GetComponent<RectTransform>().anchoredPosition)
+        {
+            bullet.SetActive(false);
+            ad.SetActive(false);
+            shootObjectScript.Shooted += 1;
+        }
     }
 
     private void Shoot()
     { 
         bullet.GetComponent<RectTransform>().anchoredPosition = Vector2.MoveTowards(bullet.GetComponent<RectTransform>().anchoredPosition, 
             ad.GetComponent<RectTransform>().anchoredPosition, speed * Time.deltaTime);
+        
     }
 
     public void ShotAt()

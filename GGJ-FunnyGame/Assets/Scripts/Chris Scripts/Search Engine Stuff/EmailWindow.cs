@@ -5,7 +5,7 @@ using UnityEngine;
 public class EmailWindow : MonoBehaviour
 {
     public GameObject Email;
-    public Canvas warningMessage;
+    public GameObject warningMessage;
 
     public void EmailTab()
     {
