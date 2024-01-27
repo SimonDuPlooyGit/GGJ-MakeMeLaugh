@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a275634d7a85f45b94077c6a3a5bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grannyJSON: {fileID: 4900000, guid: a0a5e196a4fafd6448983ee9cf337346, type: 3}
+  grannyJSON: {fileID: 4900000, guid: d3ef629de25d8334689e127448bc2fd3, type: 3}
 --- !u!114 &296801612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,7 +709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!328 &534306145
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -868,7 +868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadGlobalsJSON: {fileID: 4900000, guid: f42e840cc25111e4698dd57b2720ddad, type: 3}
-  grannyJSON: {fileID: 4900000, guid: a0a5e196a4fafd6448983ee9cf337346, type: 3}
+  grannyJSON: {fileID: 4900000, guid: d3ef629de25d8334689e127448bc2fd3, type: 3}
   dialoguePanel: {fileID: 7783700535947720828}
   typingSpeed: 0.05
   audioSource: {fileID: 559744842}
@@ -1613,7 +1613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1612318001
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1997,6 +1997,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4970606150429899601, guid: 675a08d6a91ec984c8c67be9d71bcd0b, type: 3}
+      propertyPath: grannyJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: d3ef629de25d8334689e127448bc2fd3, type: 3}
     - target: {fileID: 6553205169180507434, guid: 675a08d6a91ec984c8c67be9d71bcd0b, type: 3}
       propertyPath: m_Name
       value: DialoguePanel
