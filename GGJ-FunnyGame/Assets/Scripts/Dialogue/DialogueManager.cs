@@ -133,7 +133,8 @@ public class DialogueManager : MonoBehaviour
                     break;
 
                 case AUDIO_TAG:
-
+                    audioSource.clip = Resources.Load<AudioClip>("Sounds/Granny/"+tagValue);
+                    audioSource.Play();
                     break;
 
             }

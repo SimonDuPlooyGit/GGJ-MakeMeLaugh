@@ -803,7 +803,7 @@ MonoBehaviour:
   grannyJSON: {fileID: 4900000, guid: a0a5e196a4fafd6448983ee9cf337346, type: 3}
   dialoguePanel: {fileID: 7783700535947720828}
   typingSpeed: 0.05
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 559744842}
   oneSprite: {fileID: 199515102136445206}
   oneDialogue: {fileID: 4071144081371192972}
   continueBTN: {fileID: 820250333185815791}
@@ -818,7 +818,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
