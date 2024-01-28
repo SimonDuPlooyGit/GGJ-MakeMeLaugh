@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public GameObject printingPaper;
     public GameObject instructions;
     public GameObject reamOfPaper;
+    public GameObject emailButton;
 
     public Camera mainCamera;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     public bool paperTaken;
     public bool paperPlaced;
     public bool imageSentToPrint;
+    public bool imagePrinted;
 
     public float zoomSpeed;
     public float targetZoom;
@@ -51,6 +53,8 @@ public class GameManager : MonoBehaviour
         wifiInput.gameObject.SetActive(false);
         wifiPrompt.SetActive(false);
         reamOfPaper.GetComponent<HitByRay>().enabled = false;
+        emailButton.gameObject.SetActive(false);
+        imagePrinted = false;
     }
 
 
@@ -117,6 +121,12 @@ public class GameManager : MonoBehaviour
             if (paperPlaced)
             {
                 printerPrompt.gameObject.SetActive(true);
+
+                if (Input.GetMouseButton(0))
+                {
+                    imagePrinted = true;
+                    emailButton.gameObject.SetActive(true);
+                }
             } else
             {
                 printerPrompt.gameObject.SetActive(false);

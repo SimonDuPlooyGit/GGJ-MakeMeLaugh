@@ -496,12 +496,14 @@ MonoBehaviour:
   printingPaper: {fileID: 2086945555}
   instructions: {fileID: 2017502347}
   reamOfPaper: {fileID: 648155809}
+  emailButton: {fileID: 842029245}
   mainCamera: {fileID: 0}
   routerON: 0
   inComputer: 0
   paperTaken: 0
   paperPlaced: 0
   imageSentToPrint: 0
+  imagePrinted: 0
   zoomSpeed: 80
   targetZoom: 10
   defaultZoom: 60
@@ -4277,7 +4279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Email: {fileID: 1711552833}
-  warningMessage: {fileID: 1285587342}
+  warningMessage: {fileID: 1285587339}
 --- !u!114 &274486796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42281,7 +42283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tab: {fileID: 980551275}
   Window: {fileID: 1901227793}
-  otherWindow: {fileID: 0}
+  otherWindow: {fileID: 1701766484}
   otherWindow2: {fileID: 1635914629}
 --- !u!114 &1953036691
 MonoBehaviour:
