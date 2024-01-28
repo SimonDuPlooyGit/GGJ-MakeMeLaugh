@@ -49,12 +49,16 @@ public class DialogueManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         dialogueVariables = new DialogueVariables(loadGlobalsJSON);
+
+        
     }
 
     private void Start()
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
+        
+        enterDialogueMode(grannyJSON);
     }
 
     private void Update()

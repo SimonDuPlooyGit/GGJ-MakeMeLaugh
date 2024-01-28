@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
                     wifiInput.gameObject.SetActive(false);
                     wifiPrompt.gameObject.SetActive(false);
                     passCorrect = true;
-                    ///granny
+                    ///granny and play sound
                 }
             }
         }
