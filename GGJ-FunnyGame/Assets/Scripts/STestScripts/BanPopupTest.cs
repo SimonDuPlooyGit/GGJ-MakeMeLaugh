@@ -10,6 +10,7 @@ public class BanPopupTest : MonoBehaviour
     public TextMeshProUGUI timerText;
     public GameObject confirmButton;
     public GameObject plane;
+    public GameObject backgroundPanel;
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class BanPopupTest : MonoBehaviour
 
     public void RemoveMessage()
     {
+        backgroundPanel.SetActive(false);
         gameObject.SetActive(false);
         plane.GetComponent<PlaneFlying>().enabled = true;
     }
