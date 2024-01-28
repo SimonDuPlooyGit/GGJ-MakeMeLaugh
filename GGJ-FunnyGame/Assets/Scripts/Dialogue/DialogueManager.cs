@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private float typingSpeed;
+    [SerializeField] private AudioSource audioSource;
     [Header("Display")]
     [SerializeField] private GameObject oneSprite;
     [SerializeField] private TextMeshProUGUI oneDialogue;
@@ -32,6 +33,7 @@ public class DialogueManager : MonoBehaviour
 
     private const string PORTRAIT_TAG = "portrait";
     private const string SPEAKER_TAG = "speaker";
+    private const string AUDIO_TAG = "audio";
 
 
     private void Awake()
@@ -124,9 +126,15 @@ public class DialogueManager : MonoBehaviour
                         displayLineCoroutine = StartCoroutine(displayLine(oneDialogue, tempText));
                         oneSprite.gameObject.SetActive(true);
                     break;
+
                 case PORTRAIT_TAG:
                     oneSprite.GetComponent<Image>().sprite = Resources.Load<Sprite>("GrannySprites/"+ tagValue);
                     //Debug.Log(oneSprite.GetComponent<Image>().sprite.ToString());
+                    break;
+
+                case AUDIO_TAG:
+                    audioSource.clip = Resources.Load<AudioClip>("Sounds/Granny/"+tagValue);
+                    audioSource.Play();
                     break;
 
             }
