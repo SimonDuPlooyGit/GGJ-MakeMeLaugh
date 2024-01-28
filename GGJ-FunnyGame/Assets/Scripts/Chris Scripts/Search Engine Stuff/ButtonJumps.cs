@@ -30,7 +30,7 @@ public class ButtonJumps : MonoBehaviour
 
     public void ExitClicks()
     {
-        if (Clicks <= 5)
+        if (Clicks <= 2)
         {
             Clicks += 1;
 
