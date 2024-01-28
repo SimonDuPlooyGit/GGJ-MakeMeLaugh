@@ -8,6 +8,8 @@ public class SettingsPanels : MonoBehaviour
     public GameObject MainPanel;
     public GameObject panelOther1;
     public GameObject panelOther2;
+    public Slider volumeSlider;
+    public AudioSource gameMusic;
 
     public void Start()
     {
@@ -16,7 +18,7 @@ public class SettingsPanels : MonoBehaviour
 
     public void Update()
     {
-
+        gameMusic.volume = volumeSlider.value/100;
     }
 
     public void ChangePanels()
