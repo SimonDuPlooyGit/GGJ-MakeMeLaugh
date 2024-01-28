@@ -19,6 +19,7 @@ public class OpenMenu : MonoBehaviour
         menu.SetActive(true);
     }
 
+
     public void CloseMenuPop()
     {
         menu.SetActive(false);
@@ -33,5 +34,7 @@ public class OpenMenu : MonoBehaviour
     public void DownloadRecipe()
     {
         recipe.SetActive(true);
+
+        DialogueManager.instance.enterDialogueMode(Resources.Load<TextAsset>("DialogueTXTs/GrannyDialogue"));
     }
 }

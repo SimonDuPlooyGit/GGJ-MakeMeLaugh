@@ -51,8 +51,9 @@ public class ShootingGame : MonoBehaviour
         Bullet7.SetActive(true);
         Bullet8.SetActive(true);
 
+        DialogueManager.instance.enterDialogueMode(Resources.Load<TextAsset>("DialogueTXTs/GrannyDialogue"));
         Ad.SetActive(false);
 
-        DialogueManager.instance.enterDialogueMode(Resources.Load<TextAsset>("DialogueTXTs/GrannyDialogue"));
+        
     }
 }

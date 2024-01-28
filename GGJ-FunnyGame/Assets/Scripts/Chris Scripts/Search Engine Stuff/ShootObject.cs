@@ -46,10 +46,17 @@ public class ShootObject : MonoBehaviour
         gmAudioSource.clip = Resources.Load<AudioClip>("Sounds/gun");
         gmAudioSource.Play();
 
+        
+    
     }
 
     public void ShotAt()
     {
         shot = true;
+        transform.tag = "Untagged";
+        if (GameObject.FindGameObjectWithTag("ad") == null)
+        {
+            DialogueManager.instance.enterDialogueMode(Resources.Load<TextAsset>("DialogueTXTs/GrannyDialogue"));
+        }
     }
 }

@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
                     printedPaper.SetActive(true);
                     emailButton.gameObject.SetActive(true);
                     paperPlaced = false;
-                    GameObject.Find("PaperToMove").gameObject.SetActive(false);
+                    movingPaper.SetActive(false);
 
                     DialogueManager.instance.enterDialogueMode(Resources.Load<TextAsset>("DialogueTXTs/GrannyDialogue"));
                 }

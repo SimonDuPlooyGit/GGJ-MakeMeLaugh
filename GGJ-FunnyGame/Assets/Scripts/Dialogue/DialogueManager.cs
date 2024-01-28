@@ -152,6 +152,7 @@ public class DialogueManager : MonoBehaviour
                     break;
 
                 case END_TAG:
+                    dialoguePanel.SetActive(true);
                     FBIVid.SetActive(true);
                     FBIVidPlayer.SetActive(true);
                     break;
