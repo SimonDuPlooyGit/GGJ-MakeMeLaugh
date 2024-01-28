@@ -24,7 +24,7 @@ public class FollowMouse : MonoBehaviour
         RectTransformUtility.ScreenPointToLocalPointInRectangle(parent, Input.mousePosition, canvasMain.renderMode == RenderMode.ScreenSpaceOverlay ? null : cameraMain, out AnchoredPosition);
         aimer.anchoredPosition = AnchoredPosition;
 
-        Debug.Log(AnchoredPosition);
+        //Debug.Log(AnchoredPosition);
 
         AnchoredPosition.x -= aimedPos.x;
         AnchoredPosition.y -= aimedPos.y;

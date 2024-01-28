@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public float defaultZoom;
 
     private GameObject printedPaper;
+    private bool passCorrect;
 
     void Start()
     {
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
 
         printedPaper = GameObject.Find("PaperPrinted").gameObject;
         printedPaper.SetActive(false);
+        passCorrect = false;
     }
 
 
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
             reamOfPaper.GetComponent<HitByRay>().enabled = true;
         }
 
-        if (routerON && NoInternet.activeSelf !=false)
+        if (routerON && passCorrect ==false)
         {
             wifiInput.gameObject.SetActive(true);
             wifiPrompt.SetActive(true);
@@ -85,6 +87,7 @@ public class GameManager : MonoBehaviour
                     routerNotFound.text = "Router connected!";
                     wifiInput.gameObject.SetActive(false);
                     wifiPrompt.gameObject.SetActive(false);
+                    passCorrect = true;
                     ///granny
                 }
             }
@@ -171,6 +174,8 @@ public class GameManager : MonoBehaviour
         {
             exitComputer();
         }
+
+        
     }
 
     public void goIntoComputer()

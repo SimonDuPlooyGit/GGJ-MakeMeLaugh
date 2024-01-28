@@ -39,14 +39,23 @@ public class ButtonJumps : MonoBehaviour
             position = new Vector2(Random.Range(minHorizontalPos, maxHorizontalPos), Random.Range(minVerticalPos, maxVerticalPos));
 
             rectTransform.anchoredPosition = position;
+            window.transform.GetChild(1).GetComponent<ChangeSearchWindow>().OpenWindow();
         }      
         else
         {
-            Debug.Log("Done");
+            //Debug.Log("Done");
+            exitButton.transform.tag = "Untagged";
+
+            if (GameObject.FindWithTag("tabs") == null)
+            {
+                Debug.Log("All tabs closed");
+                ///granny
+            }
             window.SetActive(false);
             exitButton.SetActive(false);
 
             searchEngineTasksScript.ExitButtons += 1;
+
         }
     }
 }

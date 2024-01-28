@@ -2450,7 +2450,7 @@ GameObject:
   - component: {fileID: 151131651}
   m_Layer: 5
   m_Name: Exit6
-  m_TagString: Untagged
+  m_TagString: tabs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5006,7 +5006,7 @@ GameObject:
   - component: {fileID: 288676980}
   m_Layer: 5
   m_Name: Exit3
-  m_TagString: Untagged
+  m_TagString: tabs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8586,7 +8586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &480160222
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15643,7 +15643,7 @@ GameObject:
   - component: {fileID: 778503705}
   m_Layer: 5
   m_Name: Exit4
-  m_TagString: Untagged
+  m_TagString: tabs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16845,7 +16845,7 @@ GameObject:
   - component: {fileID: 821646829}
   m_Layer: 5
   m_Name: Exit5
-  m_TagString: Untagged
+  m_TagString: tabs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21746,7 +21746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &994371658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24384,7 +24384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1140570069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27792,7 +27792,7 @@ GameObject:
   - component: {fileID: 1315509300}
   m_Layer: 5
   m_Name: Exit2
-  m_TagString: Untagged
+  m_TagString: tabs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
