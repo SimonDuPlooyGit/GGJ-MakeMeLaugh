@@ -101,13 +101,13 @@ I hate looking at the screen for too long, it’s too blurry and bright for your
 The paper should be behind you.#speaker:granny #portrait:neutralGranny #audio:normal
 
 ->DONE
-===twelve===
+===printing===
 Oh, don’t mind that noise, I just give it a bit of a whack when it makes too many noises. #speaker:granny #portrait:laughingGranny #audio:laugh
 
 In the past when your grandfather printed me a few... uuhhhh... decorative items… #speaker:granny #portrait:adoreGranny #audio:adore
 
 ->DONE
-===thirteen===
+===shrine===
 OH MY GOODNESS!  #speaker:granny #portrait:shockedGranny #audio:shocked
 
 YOU SHOULD… I UMMM… ahem  #speaker:granny #portrait:shockedGranny #audio:shocked
@@ -119,9 +119,7 @@ Thank you, my dear, this is perfect. #speaker:granny #portrait:adoreGranny #audi
 
 I should order these ingredients and… herbs the next time I get groceries. #speaker:granny #portrait:neutralGranny #audio:normal
 
-Oh, you know who else would love this? Aunt Glenda! #speaker:granny #portrait:neutralGranny #audio:normal
-
-She will probably want to print it too. Would you bother to help a little longer?#speaker:granny #portrait:confusedGranny #audio:confused
+ Would you bother to help a little longer?#speaker:granny #portrait:confusedGranny #audio:confused
 
 Send this to her with the email? #speaker:granny #portrait:confusedGranny #audio:confused
 
@@ -133,25 +131,8 @@ That child needs to be in control of her sassy-ness, honestly.#speaker:granny #p
 ===fifteen===
 A countdown? Too many? Ugh not this again! #speaker:granny #portrait:angwyGranny #audio:angry
 
-Just give the PC a few kicks to get rid of it!#speaker:granny #portrait:angwyGranny #audio:angry
-
 ->DONE
-===sixteen===
-I should make these the next time she comes over, and if she brings too then... #speaker:granny #portrait:neutralGranny #audio:normal
 
-he hee the more the MERRIER!! #speaker:granny #portrait:laughingGranny #audio:laugh
-
-Oh, one more thing my sweety… While I love the wallpaper... #speaker:granny #portrait:neutralGranny #audio:normal
-
-I’ve been wanting to change it for the longest time.  #speaker:granny #portrait:confusedGranny #audio:confused
-
-It really is just too complicated. #speaker:granny #portrait:sadGranny #audio:sad
-
-There should be a picture somewhere in the files. It’s a picture of your grandfather. #speaker:granny #portrait:adoreGranny #audio:adore
-
-Ah, I adore that man. #speaker:granny #portrait:adoreGranny #audio:adore
-
-->DONE
 ===seventeen===
-Uuummm… what is this… I - interrupted #speaker:granny #portrait:shockedGranny #audio:shocked
+Uuummm… what is this… I#speaker:granny #portrait:shockedGranny #audio:shocked
 -> DONE

@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
     public float targetZoom;
     public float defaultZoom;
 
+    private GameObject printedPaper;
+
     void Start()
     {
         paperplacePrompt.SetActive(false);
@@ -57,6 +59,9 @@ public class GameManager : MonoBehaviour
         emailButton.gameObject.SetActive(false);
         imagePrinted = false;
         emailSent = false;
+
+        printedPaper = GameObject.Find("PaperPrinted").gameObject;
+        printedPaper.SetActive(false);
     }
 
 
@@ -127,7 +132,11 @@ public class GameManager : MonoBehaviour
                 if (Input.GetMouseButton(0))
                 {
                     imagePrinted = true;
+                    printedPaper.SetActive(true);
                     emailButton.gameObject.SetActive(true);
+                    paperPlaced = false;
+                    GameObject.Find("PaperToMove").gameObject.SetActive(false);
+                    ///granny
                 }
             } else
             {
