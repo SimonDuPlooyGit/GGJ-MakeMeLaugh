@@ -5,15 +5,15 @@ using UnityEditor;
 public class ToothlessPlay : MonoBehaviour
 {
     [SerializeField] private VideoPlayer vPlayer;
-    [SerializeField] private GameObject toothlessPanel;
+    //[SerializeField] private GameObject toothlessPanel;
 
-    private void Start()
-    {
-        toothlessPanel.SetActive(false);
-    }
+    //private void Start()
+    //{
+     //   toothlessPanel.SetActive(false);
+    //}
     public void playVid()
     {
-        toothlessPanel.SetActive(true);
+        //toothlessPanel.SetActive(true);
         if (vPlayer.isPlaying == false)
             vPlayer.Play();
     }
@@ -21,6 +21,6 @@ public class ToothlessPlay : MonoBehaviour
     public void stopVid()
     {
         vPlayer.Stop();
-        toothlessPanel.SetActive(false);
+        //toothlessPanel.SetActive(false);
     }
 }
