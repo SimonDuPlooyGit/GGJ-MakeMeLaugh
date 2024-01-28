@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
             reamOfPaper.GetComponent<HitByRay>().enabled = true;
         }
 
-        if (routerON)
+        if (routerON && NoInternet.activeSelf !=false)
         {
             wifiInput.gameObject.SetActive(true);
             wifiPrompt.SetActive(true);
@@ -83,6 +83,9 @@ public class GameManager : MonoBehaviour
                 {
                     NoInternet.SetActive(false);
                     routerNotFound.text = "Router connected!";
+                    wifiInput.gameObject.SetActive(false);
+                    wifiPrompt.gameObject.SetActive(false);
+                    ///granny
                 }
             }
         }

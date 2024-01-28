@@ -22,7 +22,7 @@ public class MovingObjectsZ : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit) && gameManager.GetComponent<RayObjectChecking>().currentObject == gameObject.name && Input.GetMouseButton(0))
         {
-            Debug.Log(hit.point);
+            //Debug.Log(hit.point);
             // Ensure the z value is within the clamp range
             float clampedZ = Mathf.Clamp(hit.point.z, leftClamp, rightClamp);
 
