@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         }
         else { printerPrompt.gameObject.SetActive(false); }
 
-        if (gameObject.GetComponent<RayObjectChecking>().currentObject == "ReamOfPaper")
+        if (gameObject.GetComponent<RayObjectChecking>().currentObject == "ReamOfPaper" && imageSentToPrint)
         {
             paperPrompt.gameObject.SetActive(true);
         }

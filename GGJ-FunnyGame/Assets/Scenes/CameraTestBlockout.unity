@@ -2071,7 +2071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &135404308
 Transform:
   m_ObjectHideFlags: 0
@@ -12547,7 +12547,7 @@ MonoBehaviour:
   keyItem: 1
   highlight: {fileID: 135404307}
   gameManager: {fileID: 0}
-  paperToMove: {fileID: 0}
+  paperToMove: {fileID: 858487745}
   ON: {fileID: 0}
   OFF: {fileID: 0}
 --- !u!65 &648155812
