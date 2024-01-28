@@ -88,6 +88,8 @@ public class GameManager : MonoBehaviour
                     wifiInput.gameObject.SetActive(false);
                     wifiPrompt.gameObject.SetActive(false);
                     passCorrect = true;
+
+                    DialogueManager.instance.enterDialogueMode(Resources.Load<TextAsset>("DialogueTXTs/GrannyDialogue"));
                     ///granny and play sound
                 }
             }
@@ -142,7 +144,8 @@ public class GameManager : MonoBehaviour
                     emailButton.gameObject.SetActive(true);
                     paperPlaced = false;
                     GameObject.Find("PaperToMove").gameObject.SetActive(false);
-                    ///granny
+
+                    DialogueManager.instance.enterDialogueMode(Resources.Load<TextAsset>("DialogueTXTs/GrannyDialogue"));
                 }
             } else
             {

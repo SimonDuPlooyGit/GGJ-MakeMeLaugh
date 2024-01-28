@@ -49,7 +49,8 @@ public class ButtonJumps : MonoBehaviour
             if (GameObject.FindWithTag("tabs") == null)
             {
                 Debug.Log("All tabs closed");
-                ///granny
+
+                DialogueManager.instance.enterDialogueMode(Resources.Load<TextAsset>("DialogueTXTs/GrannyDialogue"));
             }
             window.SetActive(false);
             exitButton.SetActive(false);

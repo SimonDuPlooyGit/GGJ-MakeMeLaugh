@@ -14,5 +14,7 @@ public class SendToPrinter : MonoBehaviour
     public void sendToPrint()
     {
         gameManager.GetComponent<GameManager>().imageSentToPrint = true;
+
+        DialogueManager.instance.enterDialogueMode(Resources.Load<TextAsset>("DialogueTXTs/GrannyDialogue"));
     }
 }

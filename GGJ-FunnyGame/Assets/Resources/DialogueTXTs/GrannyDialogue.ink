@@ -1,5 +1,5 @@
-INCLUDE globalsInks.ink
-{narrativePoint==0: ->one | ->two}
+INCLUDE globalsInk.ink
+{narrativePoint==0: ->one | {narrativePoint==1:->two  | {narrativePoint==2: ->three | {narrativePoint==3: ->four | {narrativePoint==4: ->five | {narrativePoint==5: ->six | {narrativePoint==6: ->seven | {narrativePoint==7: ->eight | {narrativePoint==8: ->nine | {narrativePoint==9: ->ten | ->eleven}}}}} }}}}}
 ===one===
 
 It is so wonderful for you to visit your dear old granny after so long. And it couldn’t have been at a better time. #speaker:granny #portrait:neutralGranny #audio:normal
@@ -29,6 +29,8 @@ Wee feeee? #speaker:granny #portrait:confusedGranny #audio:confused
 Speaking of, could you get the internet to work while you’re here? #speaker:granny #portrait:confusedGranny #audio:confused
 
 Your grandfather mentioned it came from that wee fee device-thingy, somewhere on the left there behind those boxes. #speaker:granny #portrait:confusedGranny #audio:confused
+~narrativePoint=2
+->three
 ->DONE
 
 ===three===
@@ -37,7 +39,7 @@ What’s this now about a password? Your mother set up a new account or whatever
 She wrote it down for me but I cannot remember where I put it. #speaker:granny #portrait:sadGranny #audio:sad
 
 I bet Dwayne the Rock would know. #speaker:granny #portrait:adoreGranny #audio:adore
-
+~narrativePoint=3
 ->DONE
 ===four===
 Oooh, so that’s where I placed it! I was right, Dwayne would know. #speaker:granny #portrait:shockedGranny #audio:shocked
@@ -51,14 +53,14 @@ Well, It seems you have the got the wee fee to work, how wonderful of you sweety
 Perhaps I can finally get the recipe the ladies and I heard about from that show.#speaker:granny #portrait:neutralGranny #audio:normal
 
 Could you find it for me my dear?#speaker:granny #portrait:confusedGranny #audio:confused
-
+~narrativePoint=4
 ->DONE
 
 ===five===
 Oh goodness! What is all of this nonsense!? #speaker:granny #portrait:shockedGranny #audio:shocked
 
 Get rid of it, get rid of them!!!#speaker:granny #portrait:angwyGranny #audio:angry
-
+~narrativePoint=5
 ->DONE
 ===six===
 Thank goodness, although that free pizza sounded tempting… #speaker:granny #portrait:confusedGranny #audio:confused
@@ -66,7 +68,7 @@ Thank goodness, although that free pizza sounded tempting… #speaker:granny #po
 Anyways, now, hmmm… what are all these crosses at the top? And all these things open? #speaker:granny #portrait:confusedGranny #audio:confused
 
 I just want the brownie recipe page thingy.#speaker:granny #portrait:sadGranny #audio:sad
-
+~narrativePoint=6
 ->DONE
 ===seven===
 You are just amazing at these gadgets and thing a ma bobs!  #speaker:granny #portrait:adoreGranny #audio:adore
@@ -74,21 +76,10 @@ You are just amazing at these gadgets and thing a ma bobs!  #speaker:granny #por
 This is something you are studying right? You must be top of the class!  #speaker:granny #portrait:laughingGranny #audio:laugh
 
 Now where is that recipe?#speaker:granny #portrait:confusedGranny #audio:confused
-
+~narrativePoint=7
 ->DONE
-===eight===
-An email account? Oh, just make it anything… #speaker:granny #portrait:confusedGranny #audio:confused
 
-->DONE
-===nine===
-That wasn’t a cat? #speaker:granny #portrait:confusedGranny #audio:confused
-
-->DONE
-===ten===
-Your mother?? My daughter?? You don’t know her? #speaker:granny #portrait:sadGranny #audio:sad
-
-->DONE
-==eleven===
+==eight===
 
 That was rather pointless, I already know I’m not a robot! #speaker:granny #portrait:angwyGranny #audio:angry
 
@@ -99,22 +90,10 @@ That took way too long. Could you be a dear and print this for me?  #speaker:gra
 I hate looking at the screen for too long, it’s too blurry and bright for your granny. #speaker:granny #portrait:sadGranny #audio:sad
 
 The paper should be behind you.#speaker:granny #portrait:neutralGranny #audio:normal
-
+~narrativePoint=8
 ->DONE
-===printing===
-Oh, don’t mind that noise, I just give it a bit of a whack when it makes too many noises. #speaker:granny #portrait:laughingGranny #audio:laugh
 
-In the past when your grandfather printed me a few... uuhhhh... decorative items… #speaker:granny #portrait:adoreGranny #audio:adore
-
-->DONE
-===shrine===
-OH MY GOODNESS!  #speaker:granny #portrait:shockedGranny #audio:shocked
-
-YOU SHOULD… I UMMM… ahem  #speaker:granny #portrait:shockedGranny #audio:shocked
-
-You should not worry about that dear, it’s nothing that umm you are old enough to know… #speaker:granny #portrait:laughingGranny #audio:laugh
-->DONE
-===fourteen===
+===nine===
 Thank you, my dear, this is perfect. #speaker:granny #portrait:adoreGranny #audio:adore
 
 I should order these ingredients and… herbs the next time I get groceries. #speaker:granny #portrait:neutralGranny #audio:normal
@@ -127,12 +106,19 @@ I usually call your mom for help but rolls her eyes when I ask nowadays. #speake
 
 That child needs to be in control of her sassy-ness, honestly.#speaker:granny #portrait:angwyGranny #audio:angry
 
+Speaking of sassy-ness...#speaker:granny #portrait:confusedGranny #audio:confused
+
+Could you please send an email for me?#speaker:granny #portrait:neutralGranny #audio:normal
+
+This person has been emailing me constantly and I have had just about enough!#speaker:granny #portrait:angwyGranny #audio:angry
+~narrativePoint=9
 ->DONE
-===fifteen===
+===ten===
 A countdown? Too many? Ugh not this again! #speaker:granny #portrait:angwyGranny #audio:angry
-
+~narrativePoint=10
 ->DONE
 
-===seventeen===
+===eleven===
 Uuummm… what is this… I#speaker:granny #portrait:shockedGranny #audio:shocked
+#end:end
 -> DONE

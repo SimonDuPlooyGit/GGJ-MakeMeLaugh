@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/CopyOfStuff.unity
+    guid: acefe4d7b4e474546bd988d44491ef64
   m_configObjects: {}

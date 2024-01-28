@@ -13,5 +13,7 @@ public class EmailWindow : MonoBehaviour
         Email.SetActive(true);
         Window.SetActive(true);
         warningMessage.gameObject.SetActive(true);
+
+        DialogueManager.instance.enterDialogueMode(Resources.Load<TextAsset>("DialogueTXTs/GrannyDialogue"));
     }
 }

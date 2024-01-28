@@ -34,6 +34,10 @@ public class DialogueManager : MonoBehaviour
     private const string PORTRAIT_TAG = "portrait";
     private const string SPEAKER_TAG = "speaker";
     private const string AUDIO_TAG = "audio";
+    private const string END_TAG = "end";
+
+    private GameObject FBIVid;
+    private GameObject FBIVidPlayer;
 
 
     private void Awake()
@@ -50,11 +54,17 @@ public class DialogueManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         dialogueVariables = new DialogueVariables(loadGlobalsJSON);
 
+        FBIVid = GameObject.Find("FBI File").gameObject;
+        FBIVidPlayer = GameObject.Find("FBIVideoPlayer").gameObject;
+
         
     }
 
     private void Start()
     {
+        FBIVid.SetActive(false);
+        FBIVidPlayer.SetActive(false);
+
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         
@@ -141,6 +151,11 @@ public class DialogueManager : MonoBehaviour
                     audioSource.Play();
                     break;
 
+                case END_TAG:
+                    FBIVid.SetActive(true);
+                    FBIVidPlayer.SetActive(true);
+                    break;
+
             }
             
         }
@@ -151,6 +166,8 @@ public class DialogueManager : MonoBehaviour
         dialogueVariables.StopListening(currentStory);
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
+
+        
     }
 
     private IEnumerator displayLine(TextMeshProUGUI dialogueCurry, string line)

@@ -16,9 +16,11 @@ public class ShootObject : MonoBehaviour
 
     public ShootingGame shootObjectScript;
 
+    private AudioSource gmAudioSource;
+
     private void Start()
     {
-        
+        gmAudioSource = GameObject.Find("GameManager").gameObject.transform.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -40,7 +42,10 @@ public class ShootObject : MonoBehaviour
     { 
         bullet.GetComponent<RectTransform>().anchoredPosition = Vector2.MoveTowards(bullet.GetComponent<RectTransform>().anchoredPosition, 
             ad.GetComponent<RectTransform>().anchoredPosition, speed * Time.deltaTime);
-        
+
+        gmAudioSource.clip = Resources.Load<AudioClip>("Sounds/gun");
+        gmAudioSource.Play();
+
     }
 
     public void ShotAt()
