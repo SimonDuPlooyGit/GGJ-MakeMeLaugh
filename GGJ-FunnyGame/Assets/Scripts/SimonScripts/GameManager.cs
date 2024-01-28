@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public bool paperPlaced;
     public bool imageSentToPrint;
     public bool imagePrinted;
+    public bool emailSent;
 
     public float zoomSpeed;
     public float targetZoom;
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
         reamOfPaper.GetComponent<HitByRay>().enabled = false;
         emailButton.gameObject.SetActive(false);
         imagePrinted = false;
+        emailSent = false;
     }
 
 
